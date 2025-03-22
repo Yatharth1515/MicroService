@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+#spring:
+#  couchbase:
+#    connection-string: couchbase://127.0.0.1
+#    username: Administrator
+#    password: Administrator
+#    bucket-name: users
+#    scope-name: _default
+#    auto-index: true
