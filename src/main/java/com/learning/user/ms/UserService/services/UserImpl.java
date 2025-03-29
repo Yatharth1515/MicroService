@@ -3,7 +3,6 @@ package com.learning.user.ms.UserService.services;
 import com.learning.user.ms.UserService.entities.User;
 import com.learning.user.ms.UserService.exceptions.ResourceNotFoundException;
 import com.learning.user.ms.UserService.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -13,8 +12,11 @@ public class UserImpl implements UserService{
 
     @Inject
     private UserRepository userRepository;
+    @Inject
+    private KafkaService kafkaService;
     @Override
     public User saveUser(User user) {
+        this.kafkaService.userDetails(user.getAbout());
         return userRepository.save(user);
     }
 
